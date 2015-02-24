@@ -37,11 +37,15 @@ namespace AutoQueryViewer.ServiceModel
     {
         [AutoIncrement]
         public int Id { get; set; }
+
         public string ServiceBaseUrl { get; set; }
         public string ServiceName { get; set; }
         public string ServiceDescription { get; set; }
-        public string ServiceImageUrl { get; set; }
+        public string ServiceIconUrl { get; set; }
+
+        public bool IsPublic { get; set; }
         public bool OnlyShowAnnotatedServices { get; set; }
+        public List<Property> ImplicitConventions { get; set; }
 
         public string DefaultSearchField { get; set; }
         public string DefaultSearchType { get; set; }
@@ -53,6 +57,7 @@ namespace AutoQueryViewer.ServiceModel
         public string LinkColor { get; set; }
         public string BackgroundColor { get; set; }
         public string BackgroundImageUrl { get; set; }
+        public string IconUrl { get; set; }
 
         public string OwnerId { get; set; }
         public DateTime Created { get; set; }
