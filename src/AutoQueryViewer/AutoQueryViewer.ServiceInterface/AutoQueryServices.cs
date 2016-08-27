@@ -58,5 +58,16 @@ namespace AutoQueryViewer.ServiceInterface
                 Result = service
             };
         }
+
+        public object Any(Dummy request)
+        {
+            return request;
+        }
+    }
+
+    public class Dummy
+    {
+        public AutoQueryMetadata AutoQueryMetadata { get; set; }
+        public AutoQueryMetadataResponse AutoQueryMetadataResponse { get; set; }
     }
 }

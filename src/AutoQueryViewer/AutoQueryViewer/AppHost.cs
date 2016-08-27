@@ -1,4 +1,6 @@
-﻿using System.IO;
+﻿using System;
+using System.Collections.Generic;
+using System.IO;
 using AutoQueryViewer.ServiceModel;
 using Funq;
 using AutoQueryViewer.ServiceInterface;
@@ -37,7 +39,8 @@ namespace AutoQueryViewer
         {
             JsConfig.EmitCamelCaseNames = true;
 
-            SetConfig(new HostConfig {
+            SetConfig(new HostConfig
+            {
                 DebugMode = AppSettings.Get("DebugMode", false),
                 AddRedirectParamsToQueryString = true,
             });
@@ -49,7 +52,7 @@ namespace AutoQueryViewer
 
             this.Plugins.Add(new AuthFeature(() => new CustomUserSession(),
                 new IAuthProvider[] {
-                    new CredentialsAuthProvider(AppSettings), 
+                    new CredentialsAuthProvider(AppSettings),
                 }));
 
             var dbFactory = container.Resolve<IDbConnectionFactory>();
